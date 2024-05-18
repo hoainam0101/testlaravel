@@ -175,6 +175,7 @@ function edit(id){
             $('#quantity').val(response.quantity);
             $('#price').val(response.price);
             $('#status').val(response.status);
+            
         }
     });
 }
@@ -203,10 +204,12 @@ $('#form-manager').submit(function (e) {
         contentType: false,
         processData: false, 
         success:  (data) => {
-            console.log(data);            
+            console.log(data);  
+            location.reload();          
         },
         error: function (data) {
             console.log(data);
+            
         }
     });
 });  

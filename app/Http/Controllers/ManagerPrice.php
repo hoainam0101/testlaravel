@@ -39,13 +39,15 @@ class ManagerPrice extends Controller
     {
         $managerId = $request->id;
         $managerPrice = ModelsManagerPrice::updateOrCreate(
-          [  
-           'name' => $request->name,
-           'user_id' => $request->user_id,
-           'price' => $request->price,
-           'quantity' => $request->quantity,
-           'status' => $request->status,
-           'manager_id' => $request->manager_id
+          [
+        'name' => $request->name,
+        'user_id' => $request->user_id,
+        'manager_id' => $request->manager_id
+        ],
+        [
+            'price' => $request->price,
+            'quantity' => $request->quantity,
+            'status' => $request->status
         ]);
         return Response()->json($managerPrice);
     }
