@@ -160,7 +160,7 @@ function add(){
 
 function edit(id){
     $.ajax({
-        type: "POST",
+        type: "PUT",
         url: "{{ url('edit') }}",
         data: {id: id},
         dataType: "json",
@@ -177,7 +177,20 @@ function edit(id){
             $('#status').val(response.status);
         }
     });
-}    
+}
+
+function del(id){
+    $.ajax({
+        type: "DELETE",
+        url: "{{ url('delete') }}",
+        data: {id: id},
+        dataType: "json",
+        success: function (response) {
+            console.log(response);
+            location.reload();
+        }
+    });
+}
 
 $('#form-manager').submit(function (e) { 
     e.preventDefault();

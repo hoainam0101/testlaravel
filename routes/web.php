@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 Route::get('/dashboard', [ManagerPrice::class, 'index'])->name('dashboard');
 Route::post('/store', [ManagerPrice::class, 'store'])->name('store');
-Route::post('/edit', [ManagerPrice::class, 'edit'])->name('edit');
+Route::put('/edit', [ManagerPrice::class, 'edit'])->name('edit');
+Route::delete('/delete', [ManagerPrice::class, 'destroy'])->name('remove');

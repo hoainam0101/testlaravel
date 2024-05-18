@@ -79,8 +79,21 @@ class ManagerPrice extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $id = array('id' => $request->id);
+        $managerPrice = ModelsManagerPrice::where('id',$id)->first();
+
+        if($managerPrice){
+            $managerPrice->delete();
+            return Response()->json([
+                'message' => 'Xoa thanh cong',
+                
+            ],200);
+        }
+        return Response()->json([
+            'error' => 'Xoa that bai',
+            
+        ],400);
     }
 }
